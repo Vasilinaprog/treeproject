@@ -38,10 +38,10 @@ $user = getUser();
                         <h2>Личная информация</h2>
                            <div style="margin-top: 150px">
 			<form class="form" action="prof.php" method=POST>
-				<input type="text" class="edit-name-input" placeholder="Имя" name="name"/>
-				<input type="text" class="edit-surname-input" placeholder="Фамилия" name="surname"/>
-                <input type="text" class="edit-patronymic-input" placeholder="Отчество" name="second_name"/>
-                <input type="date" class="birthday-input" placeholder="День рождения" name="birthday"/>
+				<input type="text" parameter="name" class="change-input" placeholder="Имя" name="name"/>
+				<input type="text" parameter="surname" class="change-input" placeholder="Фамилия" name="surname"/>
+                <input type="text" parameter="patronymic" class="change-input" placeholder="Отчество" name="second_name"/>
+                <input type="date" parameter="birthday" class="change-input" placeholder="День рождения" name="birthday"/>
 				<button type="submit">Редактировать</button>
 			</form>
 		</div>
