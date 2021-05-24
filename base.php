@@ -3,9 +3,26 @@ $host = 'localhost';
 $user = 'root';
 $password = 'root';
 $db_name = 'treeproject';
-$pdo = new PDO("", $user, $password);
+$pdo = new PDO("mysql:host=localhost;dbname=$db_name", $user, $password);
 
-function getConnect(){
+function getConnect()
+{
+    global $pdo;
+    return $pdo;
+}
+
+function queryAll($query, $all)
+{
+    global $pdo;
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+
+    if ($all) {
+        $row = $stmt->fetchAll();
+    } else {
+        $row = $stmt->fetch();
+    }
+    return $row;
 
 }
 
@@ -13,29 +30,27 @@ function append_user($login, $email, $password, $communication)
 {
     global $link;
     $sql = "INSERT INTO users (login, email, communication, password) VALUES ('$login', '$email', '$communication', '$password')";
-    $result = $link->query($sql);
+    queryAll($sql, false);
 }
 
 function check_user($login, $password)
 {
-    global $link;
-    $sql = "SELECT * FROM users WHERE email='$login' AND password='$password'";
-    $result = $link->query($sql);
-    if ($result->num_rows > 0) while ($row = $result->fetch_assoc()) return array("id_user" => $row["id_user"], "login" => $row["login"], "email" => $row["email"]);
+    $sql = "SELECT * FROM users WHERE email = $login AND password = $password";
+    $result = queryAll($sql, false);
+    if (!empty($result)) return $result;
     else {
         $sql = "SELECT * FROM users WHERE login='$login' AND password='$password'";
-        $result = $link->query($sql);
-        if ($result->num_rows > 0) while ($row = $result->fetch_assoc()) return array("id_user" => $row["id_user"], "login" => $row["login"], "email" => $row["email"]);
+        $result = queryAll($sql, false);
+        if (!empty($result)) return $result;
     }
     return false;
 }
 
 function user_exist($login)
 {
-    global $link;
     $sql = "SELECT * FROM users WHERE login='$login' OR email='$login'";
-    $result = $link->query($sql);
-    if ($result->num_rows > 0) return true;
+    $result = queryAll($sql, false);
+    if (!empty($result)) return true;
     return false;
 }
 

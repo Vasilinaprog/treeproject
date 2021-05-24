@@ -4,6 +4,7 @@
 	if($_SESSION["login"] != "") header('Location: prof.php');
 	if($_POST["login"] != ""){
 		$user = check_user($_POST["login"], $_POST["password"]);
+		print_r($user);
 		if($user){
 			$_SESSION["id_user"] = $user["id_user"];
 			$_SESSION["login"] = $user["login"];

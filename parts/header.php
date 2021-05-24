@@ -8,7 +8,7 @@
             <a class="navbar-brand" href="prof.php" id='prof'>Профиль</a>
             <a class="navbar-brand" href="main.php" id='prof'>Ваше древо</a>
             <a class="navbar-brand" href="log.html" id='prof'>Статистика</a>
-            <a class="navbar-brand" href="index.php" id='prof'>Выход</a>
+            <a class="navbar-brand" href="logout.php" id='prof'>Выход</a>
 
         </div>
     </nav>

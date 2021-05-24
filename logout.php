@@ -1,5 +1,5 @@
 <?php
 	session_start();
 	session_destroy();
-	header('Location: prof.php');
+	header('Location: index.php');
 ?>
