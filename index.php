@@ -1,15 +1,16 @@
 <?php
 	session_start();
 	require "base.php";
-	if($_SESSION["login"] != "") header('Location: prof.php');
+	if($_COOKIE["login"] != "") header('Location: prof.php');
 	if($_POST["login"] != ""){
 		$user = check_user($_POST["login"], $_POST["password"]);
 		print_r($user);
 		if($user){
-			$_SESSION["id_user"] = $user["id_user"];
-			$_SESSION["login"] = $user["login"];
-			$_SESSION["email"] = $user["email"];
-			$_SESSION["communication"] = $user["communication"];
+		    setcookie("id_user", $user["id_user"], time() + 3600);
+		    setcookie("login", $user["login"], time() + 3600);
+		    setcookie("email", $user["email"], time() + 3600);
+		    setcookie("communication", $user["communication"], time() + 3600);
+
 			header('Location: prof.php');
 		}
 		else echo "<script>alert('Неверный логин и/или пароль')</script>";

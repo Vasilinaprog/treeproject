@@ -11,24 +11,11 @@ function getConnect()
     return $pdo;
 }
 
-function queryAll($query, $all)
-{
-    global $pdo;
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
+require "query.php" ;
 
-    if ($all) {
-        $row = $stmt->fetchAll();
-    } else {
-        $row = $stmt->fetch();
-    }
-    return $row;
-
-}
 
 function append_user($login, $email, $password, $communication)
 {
-    global $link;
     $sql = "INSERT INTO users (login, email, communication, password) VALUES ('$login', '$email', '$communication', '$password')";
     queryAll($sql, false);
 }
@@ -54,3 +41,9 @@ function user_exist($login)
     return false;
 }
 
+
+function getUser(){
+    $login = $_COOKIE["login"];
+    $sql = "SELECT * FROM users WHERE  login ='$login'";
+    return queryAll($sql, false);
+}
