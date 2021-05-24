@@ -28,7 +28,6 @@ function queryAll($query, $all)
 
 function append_user($login, $email, $password, $communication)
 {
-
     global $link;
     $sql = "INSERT INTO users (login, email, communication, password) VALUES ('$login', '$email', '$communication', '$password')";
     queryAll($sql, false);
