@@ -1,0 +1,30 @@
+.profile_card_board{
+    min-width: 100%;
+    background-color: blanchedalmond;
+    border-radius: 20px;
+    border-color: blue;
+    padding: 10px;
+}
+
+
+.profile_card_body{
+    display: flex;
+    flex-direction: column;
+}
+
+.profile_row_block{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.profile_col_block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.profile_img img{
+    max-height: 250px;
+}
