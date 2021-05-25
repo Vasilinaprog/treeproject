@@ -14,7 +14,7 @@ if (!$_COOKIE["login"]) {
     header("Location: index.php");
 }
 $user = getUser();
-
+$user_info = getUserInfo();
 ?>
 
 
@@ -29,8 +29,8 @@ $user = getUser();
                         <div class="profile_img">
                             <img src="img\profile_photo.png" title="на главную страницу" alt=""/>
                         </div>
-                        <?php if ($user["name"]): ?>
-                            <h1><?= $user["name"] ?></h1>
+                        <?php if ($user_info["name"]): ?>
+                            <h1><?= $user_info["name"] ?></h1>
                         <?php else: ?>
                             <h1>Введите имя</h1>
                         <?php endif; ?>
@@ -55,38 +55,44 @@ $user = getUser();
                         <h2>Дополнительная информация</h2>
                         <div class="about-person">
                             <div>
-                                <input parameter="height" class="change-input" placeholder="Рост" type="number">
+                                <?php if ($user_info["height"]): ?>
+
+                                    <input parameter="height" class="change-input" value="<?= $user_info["height"] ?>"
+                                           type="number">
+                                <?php else: ?>
+                                    <input parameter="height" class="change-input" placeholder="Рост" type="number">
+
+                                <?php endif; ?>
+
+
                             </div>
-                            <div  class="additional-inf">
+                            <div class="additional-inf">
                                 <div class="select-text">
                                     Цвет волос:
                                 </div>
-                                <select>
-<!--                                    TODO добавить поля в бд и добавить параметры в select -->
+                                <select parameter="hair_colour">
                                     <option value="dark">Темные</option>
                                     <option value="redheads">Рыжие</option>
                                     <option value="blond">Блонд</option>
-                                    <option value="gray-haired">Седые</option>
-                                    <option value="other">Другое</option>
                                 </select>
                             </div>
 
-                            <div  class="additional-inf">
+                            <div class="additional-inf">
                                 <div class="select-text">
                                     Профессия
                                 </div>
-                                <select>
+                                <select parameter="profession">
                                     <option value="technical">Техническая</option>
                                     <option value="humanitarian">Гуманитарная</option>
                                     <option value="other">Другое</option>
                                 </select>
                             </div>
-                            <div >
-                                <div  class="additional-inf">
+                            <div>
+                                <div class="additional-inf">
                                     <div class="select-text">
                                         Цвет глаз:
                                     </div>
-                                    <select>
+                                    <select parameter="eye_colour">
                                         <option value="blue">Голубые</option>
                                         <option value="brown">Карие</option>
                                         <option value="green">Зеленые</option>
@@ -100,8 +106,8 @@ $user = getUser();
                         <div class="about-person">
                             <div>
                                 <div>
-                                    <?php if ($user["name"]): ?>
-                                        <input type="text" value="<?= $user["name"] ?>" parameter="name"
+                                    <?php if ($user_info["name"]): ?>
+                                        <input type="text" value="<?= $user_info["name"] ?>" parameter="name"
                                                class="change-input" name="name"/>
                                     <?php else: ?>
                                         <input type="text" parameter="name" class="change-input" placeholder="Имя"
@@ -109,18 +115,18 @@ $user = getUser();
                                     <?php endif; ?>
                                 </div>
                                 <div>
-                                    <?php if ($user["surname"]): ?>
+                                    <?php if ($user_info["surname"]): ?>
                                         <input type="text" parameter="surname" class="change-input"
-                                               value="<?= $user["surname"] ?>" name="surname"/>
+                                               value="<?= $user_info["surname"] ?>" name="surname"/>
                                     <?php else: ?>
                                         <input type="text" parameter="surname" class="change-input"
                                                placeholder="Фамилия" name="surname"/>
                                     <?php endif; ?>
                                 </div>
                                 <div>
-                                    <?php if ($user["patronymic"]): ?>
+                                    <?php if ($user_info["patronymic"]): ?>
                                         <input type="text" parameter="patronymic" class="change-input"
-                                               value="<?= $user["patronymic"] ?>" name="second_name"/>
+                                               value="<?= $user_info["patronymic"] ?>" name="second_name"/>
                                     <?php else: ?>
                                     <input type="text" parameter="patronymic" class="change-input"
                                            placeholder="Отчество" name="second_name"/>
@@ -132,9 +138,9 @@ $user = getUser();
                                         <div class="birthday">
                                             Дата рождения
                                         </div>
-                                        <?php if ($user["birthday"]): ?>
+                                        <?php if ($user_info["birthday"]): ?>
                                             <input type="date" parameter="birthday" class="change-input"
-                                                   value="<?= $user["birthday"] ?>" name="birthday"/>
+                                                   value="<?= $user_info["birthday"] ?>" name="birthday"/>
 
                                         <?php else: ?>
                                             <input type="date" parameter="birthday" class="change-input"

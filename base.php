@@ -26,6 +26,12 @@ function queryAll($query, $all)
 
 }
 
+function getUserInfo(){
+    $id = $_COOKIE["id_user"];
+    $sql = "SELECT * FROM information_users WHERE id_user = $id";
+    return queryAll($sql, false);
+}
+
 function append_user($login, $email, $password, $communication)
 {
     $sql = "INSERT INTO users (login, email, communication, password) VALUES ('$login', '$email', '$communication', '$password')";
