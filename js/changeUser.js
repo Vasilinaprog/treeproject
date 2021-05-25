@@ -18,6 +18,7 @@ let inputs = function () {
             }
         })
 
+
         function makeRequest(value, param) {
             let login = get_cookie("login");
             data = {

@@ -55,7 +55,7 @@ $user = getUser();
                         <h2>Дополнительная информация</h2>
                         <div class="about-person">
                             <div>
-                                <input parameter="color" class="change-input" placeholder="Рост" type="text">
+                                <input parameter="height" class="change-input" placeholder="Рост" type="number">
                             </div>
                             <div  class="additional-inf">
                                 <div class="select-text">
