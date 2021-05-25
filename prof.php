@@ -10,6 +10,9 @@
     <link href="css\prof.css" rel="stylesheet" />
 </head>
 <?php
+if(!$_COOKIE["login"]){
+    header("Location: index.php");
+}
 $user = getUser();
 
 ?>
@@ -34,20 +37,40 @@ $user = getUser();
                             <h5>Ваш id для приглашения в деревья</h5>
                             <h5>id</h5>
                         </div>
-                        <div class="profile_col_block">
+                        <div class="">
                         <h2>Личная информация</h2>
                            <div style="margin-top: 150px">
-			<form class="form" action="prof.php" method=POST>
-				<input type="text" parameter="name" class="change-input" placeholder="Имя" name="name"/>
-				<input type="text" parameter="surname" class="change-input" placeholder="Фамилия" name="surname"/>
-                <input type="text" parameter="patronymic" class="change-input" placeholder="Отчество" name="second_name"/>
-                <input type="date" parameter="birthday" class="change-input" placeholder="День рождения" name="birthday"/>
+			<div >
+                <?php if($user["name"]):?>
+				    <input type="text" value="<?=$user["name"]?>" parameter="name" class="change-input"  name="name"/>
+                <?php else:?>
+                    <input type="text" parameter="name" class="change-input" placeholder="Имя" name="name"/>
+                <?php endif;?>
+                <?php if($user["surname"]):?>
+                    <input type="text" parameter="surname" class="change-input" value="<?= $user["surname"]?>" name="surname"/>
+                <?php else:?>
+                    <input type="text" parameter="surname" class="change-input" placeholder="Фамилия" name="surname"/>
+                <?php endif;?>
+                <?php if($user["patronymic"]):?>
+                    <input type="text" parameter="patronymic" class="change-input" value="<?= $user["patronymic"]?>" name="second_name"/>
+                <?php else:?>
+                    <input type="text" parameter="patronymic" class="change-input" placeholder="Отчество" name="second_name"/>
+
+                <?php endif;?>
+                <?php if($user["birthday"]):?>
+                    <input type="date" parameter="birthday" class="change-input" value="<?=$user["birthday"] ?>" name="birthday"/>
+
+                <?php else:?>
+                    <input type="date" parameter="birthday" class="change-input" name="birthday"/>
+
+                <?php endif;?>
+
 				<button type="submit">Редактировать</button>
-			</form>
+			</div>
 		</div>
                         </div>
                     </div>
-               
+
             </div>
         </div>
     </div>
