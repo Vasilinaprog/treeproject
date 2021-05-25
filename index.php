@@ -4,7 +4,6 @@
 	if($_COOKIE["login"] != "") header('Location: prof.php');
 	if($_POST["login"] != ""){
 		$user = check_user($_POST["login"], $_POST["password"]);
-		print_r($user);
 		if($user){
 		    setcookie("id_user", $user["id_user"], time() + 3600);
 		    setcookie("login", $user["login"], time() + 3600);

@@ -1,6 +1,5 @@
 <?php
-	session_start();
-	if($_SESSION["login"] != "") header('Location: index.php');
+	if($_COOKIE["login"] != "") header('Location: index.php');
 	if($_POST["login"] != ""){
 		require "base.php";
 		if(!user_exist($_POST["login"])){
@@ -8,10 +7,10 @@
 				if($_POST["password"] == $_POST["confirm_password"]){
 					append_user($_POST["login"], $_POST["email"], $_POST["password"], $_POST["communication"]);
 					$user = check_user($_POST["login"], $_POST["password"]);
-					$_SESSION["id_user"] = $user["id_user"];
-					$_SESSION["login"] = $user["login"];
-					$_SESSION["email"] = $user["email"];
-					$_SESSION["communication"] = $user["communication"];
+					$_COOKIE["id_user"] = $user["id_user"];
+					$_COOKIE["login"] = $user["login"];
+					$_COOKIE["email"] = $user["email"];
+					$_COOKIE["communication"] = $user["communication"];
 					header('Location: index.php');
 				}
 				else echo "<script>alert('Пароли не совпадают')</script>";
@@ -36,7 +35,7 @@
 				<input type="password" placeholder="password" name="password"/>
 				<input type="password" placeholder="confirm password" name="confirm_password"/>
 				<button type="submit">Регистрация</button>
-				<p class="message">Есть аккаунт?<a href="login.php">Войти</a></p>
+				<p class="message">Есть аккаунт?<a href="prof.php">Войти</a></p>
 			</form>
 		</div>
 	</body>
