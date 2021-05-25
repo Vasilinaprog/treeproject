@@ -11,7 +11,7 @@
 </head>
 <?php
 if (!$_COOKIE["login"]) {
-    header("Location: index.php");
+    header("Location: tree.php");
 }
 $user = getUser();
 $user_info = getUserInfo();
@@ -70,10 +70,25 @@ $user_info = getUserInfo();
                                 <div class="select-text">
                                     Цвет волос:
                                 </div>
+
                                 <select parameter="hair_colour">
+                                    <?php if ($user_info["hair_colour"] == "dark"): ?>
+                                    <option selected="selected" value="dark">Темные</option>
+                                    <?php else: ?>
                                     <option value="dark">Темные</option>
+                                    <?php endif ?>
+
+                                    <?php if($user_info["hair_colour"] == "redheads"): ?>
+                                    <option selected="selected" value="redheads">Рыжие</option>
+                                    <?php else: ?>
                                     <option value="redheads">Рыжие</option>
-                                    <option value="blond">Блонд</option>
+                                    <?php endif;?>
+                                    <?php if($user_info["hair_colour"] == "blond"): ?>
+                                        <option selected="selected" value="blond">Блонд</option>
+                                    <?php else: ?>
+                                        <option value="blond">Блонд</option>
+
+                                    <?php endif; ?>
                                 </select>
                             </div>
 

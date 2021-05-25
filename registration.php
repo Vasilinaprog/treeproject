@@ -1,5 +1,5 @@
 <?php
-	if($_COOKIE["login"] != "") header('Location: index.php');
+	if($_COOKIE["login"] != "") header('Location: tree.php');
 	if($_POST["login"] != ""){
 		require "base.php";
 		if(!user_exist($_POST["login"])){
@@ -11,7 +11,7 @@
 					$_COOKIE["login"] = $user["login"];
 					$_COOKIE["email"] = $user["email"];
 					$_COOKIE["communication"] = $user["communication"];
-					header('Location: index.php');
+					header('Location: tree.php');
 				}
 				else echo "<script>alert('Пароли не совпадают')</script>";
 			}

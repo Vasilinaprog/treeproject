@@ -11,7 +11,7 @@
 </head>
 <?php
 if (!$_COOKIE["login"]) {
-    header("Location: index.php");
+    header("Location: tree.php");
 }
 ?>
 
