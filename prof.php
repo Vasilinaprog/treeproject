@@ -73,17 +73,17 @@ $user_info = getUserInfo();
 
                                 <select parameter="hair_colour">
                                     <?php if ($user_info["hair_colour"] == "dark"): ?>
-                                    <option selected="selected" value="dark">Темные</option>
+                                        <option selected="selected" value="dark">Темные</option>
                                     <?php else: ?>
-                                    <option value="dark">Темные</option>
+                                        <option value="dark">Темные</option>
                                     <?php endif ?>
 
-                                    <?php if($user_info["hair_colour"] == "redheads"): ?>
-                                    <option selected="selected" value="redheads">Рыжие</option>
+                                    <?php if ($user_info["hair_colour"] == "redheads"): ?>
+                                        <option selected="selected" value="redheads">Рыжие</option>
                                     <?php else: ?>
-                                    <option value="redheads">Рыжие</option>
-                                    <?php endif;?>
-                                    <?php if($user_info["hair_colour"] == "blond"): ?>
+                                        <option value="redheads">Рыжие</option>
+                                    <?php endif; ?>
+                                    <?php if ($user_info["hair_colour"] == "blond"): ?>
                                         <option selected="selected" value="blond">Блонд</option>
                                     <?php else: ?>
                                         <option value="blond">Блонд</option>
@@ -97,9 +97,23 @@ $user_info = getUserInfo();
                                     Профессия
                                 </div>
                                 <select parameter="profession">
-                                    <option value="technical">Техническая</option>
-                                    <option value="humanitarian">Гуманитарная</option>
-                                    <option value="other">Другое</option>
+                                    <?php if ($user_info["profession"] == "technical"): ?>
+                                        <option selected="selected" value="technical">Техническая</option>
+                                    <?php else: ?>
+                                        <option value="technical">Техническая</option>
+                                    <?php endif; ?>
+                                    <?php if ($user_info["profession"] == "humanitarian"): ?>
+                                        <option selected="selected" value="humanitarian">Гуманитарная</option>
+                                    <?php else: ?>
+                                        <option value="humanitarian">Гуманитарная</option>
+                                    <?php endif; ?>
+                                    <?php if ($user_info["profession"] == "other"): ?>
+                                        <option selected="selected" value="other">Другое</option>
+                                    <?php else: ?>
+                                        <option value="other">Другое</option>
+                                    <?php endif; ?>
+
+
                                 </select>
                             </div>
                             <div>
@@ -108,9 +122,24 @@ $user_info = getUserInfo();
                                         Цвет глаз:
                                     </div>
                                     <select parameter="eye_colour">
-                                        <option value="blue">Голубые</option>
-                                        <option value="brown">Карие</option>
-                                        <option value="green">Зеленые</option>
+                                        <?php if ($user_info["eye_colour"] == "blue"): ?>
+                                            <option selected="selected" value="blue">Голубые</option>
+                                        <?php else: ?>
+                                            <option value="blue">Голубые</option>
+                                        <?php endif; ?>
+                                        <?php if ($user_info["eye_colour"] == "brown"): ?>
+                                            <option selected="selected" value="brown">Карие</option>
+                                        <?php else: ?>
+                                            <option value="brown">Карие</option>
+                                        <?php endif; ?>
+                                        <?php if ($user_info["eye_colour"] == "green"): ?>
+                                            <option selected="selected" value="green">Зеленые</option>
+                                        <?php else: ?>
+                                            <option value="green">Зеленые</option>
+
+                                        <?php endif; ?>
+
+
                                     </select>
                                 </div>
                             </div>
