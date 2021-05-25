@@ -45,4 +45,12 @@ let inputs = function () {
     })
 }
 
+
+let addSelect = function (){
+    let selects = document.querySelectorAll("select");
+    selects.forEach(select => {
+
+    });
+}
+addSelect();
 inputs()

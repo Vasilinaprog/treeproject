@@ -32,12 +32,11 @@ if (!$_COOKIE["login"]) {
             <div class="select-text">
                 Цвет волос:
             </div>
-            <select>
+            <select name="color">
                 <!--                                    TODO добавить поля в бд и добавить параметры в select -->
                 <option value="dark">Темные</option>
                 <option value="redheads">Рыжие</option>
                 <option value="blond">Блонд</option>
-                <option value="gray-haired">Седые</option>
                 <option value="other">Другое</option>
             </select>
         </div>
@@ -45,7 +44,7 @@ if (!$_COOKIE["login"]) {
             <div class="select-text">
                 Профессия
             </div>
-            <select>
+            <select name="profession">
                 <option value="technical">Техническая</option>
                 <option value="humanitarian">Гуманитарная</option>
                 <option value="other">Другое</option>
@@ -55,7 +54,7 @@ if (!$_COOKIE["login"]) {
             <div class="select-text">
                 Цвет&ensp;глаз:
             </div>
-            <select>
+            <select name="color_eyes">
                 <option value="blue">Голубые</option>
                 <option value="brown">Карие</option>
                 <option value="green">Зеленые</option>
