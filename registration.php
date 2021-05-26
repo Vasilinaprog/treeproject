@@ -1,5 +1,5 @@
 <?php
-	if($_COOKIE["login"] != "") header('Location: tree.php');
+	if($_COOKIE["login"] != "") header('Location: index.php');
 	if($_POST["login"] != ""){
 		require "base.php";
 		if(!user_exist($_POST["login"])){
@@ -7,11 +7,14 @@
 				if($_POST["password"] == $_POST["confirm_password"]){
 					append_user($_POST["login"], $_POST["email"], $_POST["password"], $_POST["communication"]);
 					$user = check_user($_POST["login"], $_POST["password"]);
-					$_COOKIE["id_user"] = $user["id_user"];
-					$_COOKIE["login"] = $user["login"];
-					$_COOKIE["email"] = $user["email"];
-					$_COOKIE["communication"] = $user["communication"];
-					header('Location: tree.php');
+					setcookie("id_user", $user["id_user"]);
+					setcookie("login", $user["login"]);
+					setcookie("email", $user["email"]);
+					setcookie("communication", $user["communication"]);
+                    $id = $user["id_user"];
+					$sql = "INSERT INTO information_users(id_user) VALUES ($id)";
+					queryAll($sql, false);
+					header('Location: index.php');
 				}
 				else echo "<script>alert('Пароли не совпадают')</script>";
 			}
