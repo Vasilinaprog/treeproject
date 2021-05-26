@@ -72,5 +72,4 @@ if (!$_COOKIE["login"]) {
 
 <script src="js/find.js"></script>
 </body>
-<script src="js/changeUser.js"></script>
 </html>

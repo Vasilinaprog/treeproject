@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Resize Example</title>
+    <title>Дерево</title>
     <link rel="stylesheet" href="ui-lightness/jquery-ui-1.10.2.custom.css" />
     <script type="text/javascript" src="jquery-1.9.1.js"></script>
     <script type="text/javascript" src="jquery-ui-1.10.2.custom.min.js"></script>
