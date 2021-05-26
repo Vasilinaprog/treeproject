@@ -1,27 +1,30 @@
-﻿<!DOCTYPE html> 
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Дерево</title>
-    <link rel="stylesheet" href="ui-lightness/jquery-ui-1.10.2.custom.css" />
+    <link rel="stylesheet" href="ui-lightness/jquery-ui-1.10.2.custom.css"/>
     <script type="text/javascript" src="jquery-1.9.1.js"></script>
     <script type="text/javascript" src="jquery-ui-1.10.2.custom.min.js"></script>
 
-    <script  type="text/javascript" src="primitives.min.js?2020"></script>
-    <link href="primitives.latest.css?2020" media="screen" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="primitives.min.js?2020"></script>
+    <link href="primitives.latest.css?2020" media="screen" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="famdata.js"></script>
-	<script src="jquery.ui.touch-punch.min"></script>
-	
-	<style>#draggable {cursor: help;}       </style>
-<script>$(function() {$( "#draggable" ).draggable();        });</script>
+    <script src="jquery.ui.touch-punch.min"></script>
+
+    <style>#draggable {
+            cursor: help;
+        }       </style>
+    <script>$(function () {
+            $("#draggable").draggable();
+        });</script>
 
     <script type="text/javascript">
         jQuery(document).ready(function () {
             var options = new primitives.orgdiagram.Config();
 
             options.items = famdata;
-			
-			
+
 
             options.cursorItem = null;
             options.hasSelectorCheckbox = primitives.common.Enabled.False;
@@ -36,33 +39,29 @@
             options.lineItemsInterval = 1;
             options.linesWidth = 1;
             options.linesColor = "#7C8993";
-        
-			
-			
+
+
             jQuery("#diagram").famDiagram(options);
 
-			
-			
+
             var placeholder = jQuery(".placeholder");
             jQuery("#diagram").css({
                 width: placeholder.width() + 10,
                 height: placeholder.height() + 10,
             })
             jQuery("#diagram").famDiagram("update");
-			
-			
-			
+
 
         });
-		
+
 
     </script>
 </head>
 <body>
 <div class="container">
-	<div id="draggable" class="ui-widget-content ui-draggable">
-    <div id="diagram" style="width:1000px; height:1000px"></div>
-	</div>
-	</div>
+    <div id="draggable" class="ui-widget-content ui-draggable">
+        <div id="diagram" style="width:1000px; height:1000px"></div>
+    </div>
+</div>
 </body>
 </html>

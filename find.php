@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require "base.php" ?>
+<?php if ($_COOKIE["login"] == "") header('Location: index.php');
+?>
 <head>
     <meta charset="UTF-8"/>
     <title>Профиль</title>
@@ -22,25 +24,24 @@ if (!$_COOKIE["login"]) {
 <div class="main">
     <div class="header-find" style="display: flex">
 
-        <div  class="additional-inf-find">
+        <div class="additional-inf-find">
             <div class="select-text">
                 Имя/фамилия/отчество:
             </div>
             <input type="text" placeholder="Введите имя">
         </div>
-        <div  class="additional-inf-find">
+        <div class="additional-inf-find">
             <div class="select-text">
                 Цвет волос:
             </div>
             <select name="color">
-                <!--                                    TODO добавить поля в бд и добавить параметры в select -->
                 <option value="dark">Темные</option>
                 <option value="redheads">Рыжие</option>
                 <option value="blond">Блонд</option>
                 <option value="other">Другое</option>
             </select>
         </div>
-        <div  class="additional-inf-find">
+        <div class="additional-inf-find">
             <div class="select-text">
                 Профессия
             </div>
@@ -50,7 +51,7 @@ if (!$_COOKIE["login"]) {
                 <option value="other">Другое</option>
             </select>
         </div>
-        <div  class="additional-inf-find">
+        <div class="additional-inf-find">
             <div class="select-text">
                 Цвет&ensp;глаз:
             </div>
@@ -61,6 +62,10 @@ if (!$_COOKIE["login"]) {
             </select>
         </div>
 
+
+    </div>
+
+    <div class="answer">
 
     </div>
 
