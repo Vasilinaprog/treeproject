@@ -1,6 +1,6 @@
 <div class="header">
     <div class="box">
-        <a href="main.html"><img src="img\logo.png" title="на главную страницу" alt="" /></a>
+        <a href="index.php"><img src="img\logo.png" title="на главную страницу" alt="" /></a>
         <h1>Изучи себя с самого начала</h1>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light">

@@ -6,12 +6,6 @@
     padding: 10px;
 }
 
-
-.profile_card_body {
-    display: flex;
-    flex-direction: column;
-}
-
 .profile_row_block {
     display: flex;
     justify-content: space-around;
@@ -23,6 +17,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    flex-direction: column;
 }
 
 .profile_img img {
@@ -79,4 +74,6 @@
 #file{
     margin-top: 20px;
 }
+
+
 

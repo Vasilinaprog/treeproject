@@ -22,7 +22,7 @@ let inputs = function () {
 
         function makeRequest(value, param) {
             let id = get_cookie("id_user");
-            if(param === "name"){
+            if (param === "name") {
                 let name = document.querySelector("#name");
                 name.textContent = value;
             }
@@ -43,7 +43,7 @@ let inputs = function () {
                     return response.json()
                 })
                 .then(function (data) {
-
+                    location.reload()
                 })
         }
     })
@@ -79,10 +79,42 @@ let addSelect = function () {
                 return response.json()
             })
             .then(function (data) {
+
             })
     }
 }
-addSelect();
 
 
+let changeImage = function () {
+    let input = document.querySelector("#load-file-input");
+    input.addEventListener("change", loadPhoto);
+
+    function loadPhoto() {
+        let file = this.files[0]
+        let data = new FormData()
+        data.append("file", file)
+        data.append("test", "ok")
+        loadNewImage(data)
+    }
+
+    function loadNewImage(form) {
+        // TODO надо доделать загрузку фото
+        let url = "http://localhost:8888/treeproject/load/user/image.php"
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/multipart/form-data'
+            },
+            body: form
+        })
+            .then(function (response) {
+                return response.text()
+            })
+            .then(function (data) {
+                alert(data)
+            })
+    }
+}
+addSelect()
+changeImage()
 inputs()
