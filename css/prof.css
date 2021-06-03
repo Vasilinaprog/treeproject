@@ -27,6 +27,8 @@
 
 .profile_img img {
     max-height: 250px;
+    border-radius: 20px;
+    margin-bottom: 30px;
 }
 
 .change-input {
@@ -59,17 +61,22 @@
     padding: 5px;
 
 }
-.select-text{
+
+.select-text {
     padding-right: 15px;
 }
 
-.additional-inf-find{
+.additional-inf-find {
     padding: 20px;
 }
-.additional-inf-find input{
+
+.additional-inf-find input {
     border-radius: 10px;
     background-color: white;
     border: 0px;
     padding: 3px;
+}
+#file{
+    margin-top: 20px;
 }
 

@@ -11,7 +11,7 @@
 </head>
 <?php
 if (!$_COOKIE["login"]) {
-    header("Location: tree.php");
+    header("Location: index.php");
 }
 $user = getUser();
 $user_info = getUserInfo();
@@ -30,13 +30,13 @@ $user_info = getUserInfo();
                             <img src="img\profile_photo.png" title="на главную страницу" alt=""/>
                         </div>
                         <?php if ($user_info["name"]): ?>
-                            <h1><?= $user_info["name"] ?></h1>
+                            <h1 id="name"><?= $user_info["name"] ?></h1>
                         <?php else: ?>
-                            <h1>Введите имя</h1>
+                            <h1 id="name"> Введите имя</h1>
                         <?php endif; ?>
                         <div style="display: flex">
                             <div>
-                                <h5>Ваш id для приглашения: </h5>
+                                <h5>Ваш id: </h5>
                             </div>
                             <div>
                                 <?php if ($user["id_user"]): ?>
@@ -116,6 +116,7 @@ $user_info = getUserInfo();
 
                                 </select>
                             </div>
+
                             <div>
                                 <div class="additional-inf">
                                     <div class="select-text">
@@ -142,6 +143,9 @@ $user_info = getUserInfo();
 
                                     </select>
                                 </div>
+                            </div>
+                            <div id="file">
+                                <input type="file" size="1">
                             </div>
                         </div>
                     </div>
@@ -205,5 +209,8 @@ $user_info = getUserInfo();
                 crossorigin="anonymous">
         </script>
 </body>
+
+
+
 <script src="js/changeUser.js"></script>
 </html>

@@ -22,6 +22,10 @@ let inputs = function () {
 
         function makeRequest(value, param) {
             let id = get_cookie("id_user");
+            if(param === "name"){
+                let name = document.querySelector("#name");
+                name.textContent = value;
+            }
             data = {
                 "query": `UPDATE information_users
                           SET ${param} = '${value}'
@@ -39,7 +43,7 @@ let inputs = function () {
                     return response.json()
                 })
                 .then(function (data) {
-                    location.reload()
+
                 })
         }
     })
@@ -75,7 +79,6 @@ let addSelect = function () {
                 return response.json()
             })
             .then(function (data) {
-                location.reload()
             })
     }
 }

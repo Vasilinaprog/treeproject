@@ -34,8 +34,7 @@ if (!$_COOKIE["login"]) {
             <div class="select-text">
                 Цвет волос:
             </div>
-            <select name="color">
-                <option value="dark">Темные</option>
+            <select name="color"><option value="dark">Темные</option>
                 <option value="redheads">Рыжие</option>
                 <option value="blond">Блонд</option>
                 <option value="other">Другое</option>

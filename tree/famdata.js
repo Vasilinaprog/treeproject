@@ -1,4 +1,4 @@
-﻿var famdata = [
+﻿let famdata = [
     { id: 29, title: "Иванов Дмитрий Сергеевич ", label: "Thomas Williams", description: "Р.Хакассия, П.Майна, 17.05.2015-17.05.2215", phone: "262-215-7998", email: "jameholt@name.com", image: "photos/e.png", itemTitleColor: "#c8e4fb" },
 	 { id: 28, title: "Иванов Дмитрий Сергеевич ", label: "Thomas Williams", description: "Р.Хакассия, П.Майна, 17.05.2015-17.05.2215", phone: "262-215-7998", email: "jameholt@name.com", image: "photos/e.png", itemTitleColor: "#c8e4fb" },
 	 { id: 30,parents: [29, 28], title: "", label: "Thomas Williams", description: "", phone: "262-215-7998", email: "jameholt@name.com", image: "", itemTitleColor: "#c8e4fb" },
