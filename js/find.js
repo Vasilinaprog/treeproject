@@ -43,22 +43,13 @@ let input = function () {
             .then(function (data) {
                 addToPage(data)
             })
+
         function addToPage(data) {
             let block = document.querySelector(".answer");
             data.forEach(elem => {
-                let div = document.createElement("div");
-                div.style.display = "flex";
-                Object.keys(elem).forEach(function(key) {
-                    let divText = document.createElement("div");
-                    divText.style.margin = "5px"
-                    divText.textContent = elem[key];
-                    div.appendChild(divText)
-                });
-                block.appendChild(div);
-
-                divText
-
-            });
+                    console.log(elem);
+                }
+            );
 
         }
     }

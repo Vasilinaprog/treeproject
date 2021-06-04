@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require "base.php" ?>
-<?php if ($_COOKIE["login"] == "") header('Location: index.php');
-?>
+
 <head>
     <meta charset="UTF-8"/>
     <title>Профиль</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"/>
     <link href="css\base.css" rel="stylesheet"/>
+    <link href="css\find.css" rel="stylesheet"/>
     <link href="css\prof.css" rel="stylesheet"/>
 </head>
 <?php
 if (!$_COOKIE["login"]) {
-    header("Location: tree.php");
+    header("Location: index.php");
 }
 ?>
 
@@ -34,10 +34,12 @@ if (!$_COOKIE["login"]) {
             <div class="select-text">
                 Цвет волос:
             </div>
-            <select name="color"><option value="dark">Темные</option>
-                <option value="redheads">Рыжие</option>
-                <option value="blond">Блонд</option>
-                <option value="other">Другое</option>
+            <select name="color">
+                <option value="Темные">Темные</option>
+                <option value="Рыжие">Рыжие</option>
+                <option value="Блонд">Блонд</option>
+                <option value="Другое">Другое</option>
+                <option selected="selected" value="">-</option>
             </select>
         </div>
         <div class="additional-inf-find">
@@ -45,9 +47,9 @@ if (!$_COOKIE["login"]) {
                 Профессия
             </div>
             <select name="profession">
-                <option value="technical">Техническая</option>
-                <option value="humanitarian">Гуманитарная</option>
-                <option value="other">Другое</option>
+                <option value="Техническая">Техническая</option>
+                <option value="Гуманитарная">Гуманитарная</option>
+                <option value="" selected="selected">-</option>
             </select>
         </div>
         <div class="additional-inf-find">
@@ -55,9 +57,10 @@ if (!$_COOKIE["login"]) {
                 Цвет&ensp;глаз:
             </div>
             <select name="color_eyes">
-                <option value="blue">Голубые</option>
-                <option value="brown">Карие</option>
-                <option value="green">Зеленые</option>
+                <option value="Голубые">Голубые</option>
+                <option value="Карие">Карие</option>
+                <option value="Зеленые">Зеленые</option>
+                <option selected="selected" value="">-</option>
             </select>
         </div>
 
@@ -65,6 +68,20 @@ if (!$_COOKIE["login"]) {
     </div>
 
     <div class="answer">
+        <table>
+
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Цвет волос</th>
+            <th>Профессия</th>
+            <th>Цвет глаз</th>
+            <th>Рост</th>
+            <th>День рождения</th>
+            <th>Контакты</th>
+        </tr>
+        </table>
 
     </div>
 
