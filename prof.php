@@ -57,21 +57,21 @@ $user_info = getUserInfo();
                             </div>
 
                             <select parameter="hair_colour">
-                                <?php if ($user_info["hair_colour"] == "dark"): ?>
-                                    <option selected="selected" value="dark">Темные</option>
+                                <?php if ($user_info["hair_colour"] == "Темные"): ?>
+                                    <option selected="selected" value="Темные">Темные</option>
                                 <?php else: ?>
-                                    <option value="dark">Темные</option>
+                                    <option value="Темные">Темные</option>
                                 <?php endif ?>
 
-                                <?php if ($user_info["hair_colour"] == "redheads"): ?>
-                                    <option selected="selected" value="redheads">Рыжие</option>
+                                <?php if ($user_info["hair_colour"] == "Рыжие"): ?>
+                                    <option selected="selected" value="Рыжие">Рыжие</option>
                                 <?php else: ?>
-                                    <option value="redheads">Рыжие</option>
+                                    <option value="Рыжие">Рыжие</option>
                                 <?php endif; ?>
-                                <?php if ($user_info["hair_colour"] == "blond"): ?>
-                                    <option selected="selected" value="blond">Блонд</option>
+                                <?php if ($user_info["hair_colour"] == "Блонд"): ?>
+                                    <option selected="selected" value="Блонд">Блонд</option>
                                 <?php else: ?>
-                                    <option value="blond">Блонд</option>
+                                    <option value="Блонд">Блонд</option>
 
                                 <?php endif; ?>
                             </select>
@@ -82,20 +82,20 @@ $user_info = getUserInfo();
                                 Профессия
                             </div>
                             <select parameter="profession">
-                                <?php if ($user_info["profession"] == "technical"): ?>
-                                    <option selected="selected" value="technical">Техническая</option>
+                                <?php if ($user_info["profession"] == "Техническая"): ?>
+                                    <option selected="selected" value="Техническая">Техническая</option>
                                 <?php else: ?>
-                                    <option value="technical">Техническая</option>
+                                    <option value="Техническая">Техническая</option>
                                 <?php endif; ?>
-                                <?php if ($user_info["profession"] == "humanitarian"): ?>
-                                    <option selected="selected" value="humanitarian">Гуманитарная</option>
+                                <?php if ($user_info["profession"] == "Гуманитарная"): ?>
+                                    <option selected="selected" value="Гуманитарная">Гуманитарная</option>
                                 <?php else: ?>
-                                    <option value="humanitarian">Гуманитарная</option>
+                                    <option value="Гуманитарная">Гуманитарная</option>
                                 <?php endif; ?>
-                                <?php if ($user_info["profession"] == "other"): ?>
-                                    <option selected="selected" value="other">Другое</option>
+                                <?php if ($user_info["profession"] == "Другое"): ?>
+                                    <option selected="selected" value="Другое">Другое</option>
                                 <?php else: ?>
-                                    <option value="other">Другое</option>
+                                    <option value="Другое">Другое</option>
                                 <?php endif; ?>
 
 
@@ -108,20 +108,20 @@ $user_info = getUserInfo();
                                     Цвет глаз:
                                 </div>
                                 <select parameter="eye_colour">
-                                    <?php if ($user_info["eye_colour"] == "blue"): ?>
-                                        <option selected="selected" value="blue">Голубые</option>
+                                    <?php if ($user_info["eye_colour"] == "Голубые"): ?>
+                                        <option selected="selected" value="Голубые">Голубые</option>
                                     <?php else: ?>
-                                        <option value="blue">Голубые</option>
+                                        <option value="Голубые">Голубые</option>
                                     <?php endif; ?>
-                                    <?php if ($user_info["eye_colour"] == "brown"): ?>
-                                        <option selected="selected" value="brown">Карие</option>
+                                    <?php if ($user_info["eye_colour"] == "Карие"): ?>
+                                        <option selected="selected" value="Карие">Карие</option>
                                     <?php else: ?>
-                                        <option value="brown">Карие</option>
+                                        <option value="Карие">Карие</option>
                                     <?php endif; ?>
-                                    <?php if ($user_info["eye_colour"] == "green"): ?>
-                                        <option selected="selected" value="green">Зеленые</option>
+                                    <?php if ($user_info["eye_colour"] == "Зеленые"): ?>
+                                        <option selected="selected" value="Зеленые">Зеленые</option>
                                     <?php else: ?>
-                                        <option value="green">Зеленые</option>
+                                        <option value="Зеленые">Зеленые</option>
 
                                     <?php endif; ?>
 
