@@ -26,8 +26,9 @@ function queryAll($query, $all)
 
 }
 
-function getUserInfo(){
-    $id = $_COOKIE["id_user"];
+function getUserInfo($id=0){
+    if($id == 0)
+        $id = $_COOKIE["id_user"];
     $sql = "SELECT * FROM information_users WHERE id_user = $id";
     return queryAll($sql, false);
 }

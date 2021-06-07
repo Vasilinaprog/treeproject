@@ -13,7 +13,7 @@ let input = function () {
     let name = document.querySelector("input")
     name.addEventListener('keydown', function (e) {
         if (e.keyCode === 13) {
-                makeRequest(this.value, this.getAttribute("parameter"));
+            makeRequest(this.value, this.getAttribute("parameter"));
 
         }
     })
@@ -52,32 +52,39 @@ let input = function () {
                 "            <th>Цвет волос</th>\n" +
                 "            <th>Профессия</th>\n" +
                 "            <th>Цвет глаз</th>\n" +
-                "            <th>Рост</th>\n" +
-                "            <th>День рождения</th>\n" +
-                "            " +
                 "        </tr>"
             data.forEach(elem => {
-                console.log(elem)
                     let tr = document.createElement("tr")
+                    tr.classList.add("toUser")
+                    tr.userId = elem["id_user"]
                     let headers = ["name", "surname", "patronymic", "hair_colour", "profession",
-                        "eye_colour", "height", "birthday"];
+                        "eye_colour"];
                     headers.forEach(header => {
                         let td = document.createElement("td")
-                        if(elem[header] && elem[header] != " ")
+                        if (elem[header] && elem[header] != " ")
                             td.textContent = elem[header]
                         else
+                            td.classList.add("greyText")
                             td.textContent = "Отсутствует"
 
                         tr.appendChild(td);
                     });
+                    tr.addEventListener("click", openProfilePage)
+
                     block.appendChild(tr)
                 }
             );
+
+            function openProfilePage() {
+                let id = this.userId
+                window.open(`http://localhost:8888/treeproject/user.php?id=${id}`, "_self")
+            }
+
             let error = document.querySelector(".error");
-            if (!data.length){
+            if (!data.length) {
                 let errorText = "Ничего не найдено";
                 error.textContent = errorText;
-            }else{
+            } else {
                 error.textContent = ""
             }
 

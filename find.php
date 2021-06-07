@@ -70,16 +70,14 @@ if (!$_COOKIE["login"]) {
     <div class="answer">
         <table>
 
-        <tr>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Отчество</th>
-            <th>Цвет волос</th>
-            <th>Профессия</th>
-            <th>Цвет глаз</th>
-            <th>Рост</th>
-            <th>День рождения</th>
-        </tr>
+            <tr>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>Цвет волос</th>
+                <th>Профессия</th>
+                <th>Цвет глаз</th>
+            </tr>
         </table>
 
     </div>

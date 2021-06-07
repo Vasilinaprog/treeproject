@@ -1,5 +1,6 @@
 .answer table tr th{
     font-size: 20px;
+    padding: 5px
 }
 .answer table {
     width: 100%;
@@ -7,9 +8,19 @@
 }
 .select-text {
     margin-bottom: 10px;
+    font-size: 19px
+}
+
+
+.toUser{
+    cursor: pointer;
+    font-size: 19px;
 }
 
 .error {
     color: #cd0000;
     font-size: 20px;
+}
+.greyText{
+    color: rgba(9, 9, 9, 0.36);
 }
