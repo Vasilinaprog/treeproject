@@ -57,6 +57,11 @@ $user_info = getUserInfo();
                             </div>
 
                             <select parameter="hair_colour">
+                                <?php if ($user_info["hair_colour"] == "-"): ?>
+                                    <option selected="selected" value="-">-</option>
+                                <?php else: ?>
+                                    <option value="-">-</option>
+                                <?php endif ?>
                                 <?php if ($user_info["hair_colour"] == "Темные"): ?>
                                     <option selected="selected" value="Темные">Темные</option>
                                 <?php else: ?>
@@ -82,6 +87,11 @@ $user_info = getUserInfo();
                                 Профессия
                             </div>
                             <select parameter="profession">
+                                <?php if ($user_info["profession"] == "-"): ?>
+                                    <option selected="selected" value="-">-</option>
+                                <?php else: ?>
+                                    <option value="-">-</option>
+                                <?php endif; ?>
                                 <?php if ($user_info["profession"] == "Техническая"): ?>
                                     <option selected="selected" value="Техническая">Техническая</option>
                                 <?php else: ?>
@@ -108,6 +118,11 @@ $user_info = getUserInfo();
                                     Цвет глаз:
                                 </div>
                                 <select parameter="eye_colour">
+                                    <?php if ($user_info["eye_colour"] == "-"): ?>
+                                        <option selected="selected" value="-">-</option>
+                                    <?php else: ?>
+                                        <option value="-">-</option>
+                                    <?php endif; ?>
                                     <?php if ($user_info["eye_colour"] == "Голубые"): ?>
                                         <option selected="selected" value="Голубые">Голубые</option>
                                     <?php else: ?>

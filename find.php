@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Профиль</title>
+    <title>Поиск</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"/>
     <link href="css\base.css" rel="stylesheet"/>
@@ -79,11 +79,14 @@ if (!$_COOKIE["login"]) {
             <th>Цвет глаз</th>
             <th>Рост</th>
             <th>День рождения</th>
-            <th>Контакты</th>
         </tr>
         </table>
 
     </div>
+    <div class="error">
+
+    </div>
+
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"

@@ -13,7 +13,6 @@ let input = function () {
     let name = document.querySelector("input")
     name.addEventListener('keydown', function (e) {
         if (e.keyCode === 13) {
-            if (this.value !== "")
                 makeRequest(this.value, this.getAttribute("parameter"));
 
         }
@@ -45,11 +44,42 @@ let input = function () {
             })
 
         function addToPage(data) {
-            let block = document.querySelector(".answer");
+            let block = document.querySelector("table");
+            block.innerHTML = "<tr>\n" +
+                "            <th>Имя</th>\n" +
+                "            <th>Фамилия</th>\n" +
+                "            <th>Отчество</th>\n" +
+                "            <th>Цвет волос</th>\n" +
+                "            <th>Профессия</th>\n" +
+                "            <th>Цвет глаз</th>\n" +
+                "            <th>Рост</th>\n" +
+                "            <th>День рождения</th>\n" +
+                "            " +
+                "        </tr>"
             data.forEach(elem => {
-                    console.log(elem);
+                console.log(elem)
+                    let tr = document.createElement("tr")
+                    let headers = ["name", "surname", "patronymic", "hair_colour", "profession",
+                        "eye_colour", "height", "birthday"];
+                    headers.forEach(header => {
+                        let td = document.createElement("td")
+                        if(elem[header] && elem[header] != " ")
+                            td.textContent = elem[header]
+                        else
+                            td.textContent = "Отсутствует"
+
+                        tr.appendChild(td);
+                    });
+                    block.appendChild(tr)
                 }
             );
+            let error = document.querySelector(".error");
+            if (!data.length){
+                let errorText = "Ничего не найдено";
+                error.textContent = errorText;
+            }else{
+                error.textContent = ""
+            }
 
         }
     }

@@ -3,4 +3,13 @@
 }
 .answer table {
     width: 100%;
+    text-align: center;
+}
+.select-text {
+    margin-bottom: 10px;
+}
+
+.error {
+    color: #cd0000;
+    font-size: 20px;
 }
