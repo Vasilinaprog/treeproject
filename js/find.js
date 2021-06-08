@@ -11,6 +11,9 @@ function get_cookie(cookie_name) {
 
 let inputs = function () {
 
+    let input = document.querySelector(".input-name")
+    input.addEventListener("change", makeRequest)
+
     let selects = document.querySelectorAll(".find-user")
     selects.forEach(select => {
         select.addEventListener("click", makeRequest)

@@ -84,9 +84,7 @@ $user_info = getUserInfo($_GET["id"]);
                                     <?= $user_info["profession"] ?>
                                 <?php endif ?>
                             </div>
-
                         </div>
-
                         <div>
                             <div class="additional-inf">
                                 <div class="select-text">
@@ -139,7 +137,7 @@ $user_info = getUserInfo($_GET["id"]);
                                 <div>
                                     <?php endif; ?>
                                 </div>
-                                <div>
+                                <div style="font-size: 19px">
 
                                     <div class="birthday">
                                         Дата рождения
@@ -149,7 +147,7 @@ $user_info = getUserInfo($_GET["id"]);
                                                value="<?= $user_info["birthday"] ?>" name="birthday"/>
 
                                     <?php else: ?>
-                                        <p style="color: rebeccapurple">Не указан</p>
+                                        <p style="color: rebeccapurple">Не указана</p>
 
                                     <?php endif; ?>
                                 </div>
@@ -157,10 +155,7 @@ $user_info = getUserInfo($_GET["id"]);
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
-
 </body>
 </html>

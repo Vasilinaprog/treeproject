@@ -30,7 +30,9 @@
     margin-bottom: 20px;
     padding-right: 10px;
     border-radius: 10px;
-    border: 0px solid black
+    border: 0px solid black;
+    font-size: 18px;
+    width: 60%;
 }
 
 .about-person {
@@ -52,9 +54,9 @@
     margin-left: auto;
     margin-right: auto;
     display: flex;
-    width: 45%;
+    width: 60%;
     padding: 5px;
-
+    font-size: 19px;
 }
 
 .select-text {
@@ -74,6 +76,4 @@
 #file{
     margin-top: 20px;
 }
-
-
 

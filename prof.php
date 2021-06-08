@@ -181,7 +181,7 @@ $user_info = getUserInfo();
                                 <div>
                                     <?php endif; ?>
                                 </div>
-                                <div>
+                                <div style="font-size: 19px">
 
                                     <div class="birthday">
                                         Дата рождения

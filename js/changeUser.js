@@ -11,12 +11,13 @@ let inputs = function () {
 
     let inputsData = document.querySelectorAll(".change-input");
     inputsData.forEach(elem => {
-        elem.addEventListener('keydown', function (e) {
-            if (e.keyCode === 13) {
+        elem.addEventListener('change', function (e) {
                 if (this.value !== "")
                     makeRequest(this.value, this.getAttribute("parameter"));
+                else{
+                    makeRequest("None", this.getAttribute("parameter"));
 
-            }
+                }
         })
 
 
@@ -43,7 +44,6 @@ let inputs = function () {
                     return response.json()
                 })
                 .then(function (data) {
-                    location.reload()
                 })
         }
     })
