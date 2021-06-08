@@ -69,6 +69,7 @@ let inputs = function () {
                 "            <th>Цвет глаз</th>\n" +
                 "        </tr>"
             data.forEach(elem => {
+                if(elem["id_user"] !== get_cookie("id_user")) {
                     let tr = document.createElement("tr")
                     tr.classList.add("toUser")
                     tr.userId = elem["id_user"]
@@ -88,6 +89,7 @@ let inputs = function () {
                     tr.addEventListener("click", openProfilePage)
 
                     block.appendChild(tr)
+                }
                 }
             );
 
