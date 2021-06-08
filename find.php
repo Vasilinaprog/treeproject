@@ -28,17 +28,16 @@ if (!$_COOKIE["login"]) {
             <div class="select-text">
                 Имя/фамилия/отчество:
             </div>
-            <input type="text" placeholder="Введите имя">
+            <input type="text" class="input-name" placeholder="Введите имя">
         </div>
         <div class="additional-inf-find">
             <div class="select-text">
                 Цвет волос:
             </div>
-            <select name="color">
+            <select class="find-user" name="color">
                 <option value="Темные">Темные</option>
                 <option value="Рыжие">Рыжие</option>
                 <option value="Блонд">Блонд</option>
-                <option value="Другое">Другое</option>
                 <option selected="selected" value="">-</option>
             </select>
         </div>
@@ -46,7 +45,7 @@ if (!$_COOKIE["login"]) {
             <div class="select-text">
                 Профессия
             </div>
-            <select name="profession">
+            <select class="find-user" name="profession">
                 <option value="Техническая">Техническая</option>
                 <option value="Гуманитарная">Гуманитарная</option>
                 <option value="" selected="selected">-</option>
@@ -56,7 +55,7 @@ if (!$_COOKIE["login"]) {
             <div class="select-text">
                 Цвет&ensp;глаз:
             </div>
-            <select name="color_eyes">
+            <select class="find-user" name="color_eyes">
                 <option value="Голубые">Голубые</option>
                 <option value="Карие">Карие</option>
                 <option value="Зеленые">Зеленые</option>
@@ -64,6 +63,9 @@ if (!$_COOKIE["login"]) {
             </select>
         </div>
 
+        <div class="additional-inf-find">
+            <div class="button-find">Поиск</div>
+        </div>
 
     </div>
 

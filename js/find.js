@@ -9,23 +9,39 @@ function get_cookie(cookie_name) {
         return null;
 }
 
-let input = function () {
-    let name = document.querySelector("input")
-    name.addEventListener('keydown', function (e) {
-        if (e.keyCode === 13) {
-            makeRequest(this.value, this.getAttribute("parameter"));
+let inputs = function () {
 
-        }
+    let selects = document.querySelectorAll(".find-user")
+    selects.forEach(select => {
+        select.addEventListener("click", makeRequest)
     })
 
-    function makeRequest(value, param) {
+    let button = document.querySelector(".button-find")
+    button.addEventListener("click", makeRequest)
+
+    let selectsAll = document.querySelectorAll(".find-user")
+    selectsAll.forEach(elem => {
+        elem.addEventListener("change", makeRequest)
+    })
+
+
+    function makeRequest() {
         let id = get_cookie("id_user");
+        let selects = document.querySelectorAll(".find-user")
+        let value = document.querySelector(".input-name").value
+        let  hair_colour= selects[0].value;
+        let profession = selects[1].value;
+        let eye_colour = selects[2].value;
+        sql = `SELECT *
+               FROM users u
+                        LEFT JOIN information_users inf ON u.id_user = inf.id_user
+               WHERE inf.name LIKE "%${value}%"
+                 AND inf.eye_colour LIKE "%${eye_colour}%"
+                 AND inf.profession LIKE "%${profession}%"
+                 AND inf.hair_colour LIKE "%${hair_colour}%"`
+
         data = {
-            "query": `SELECT *
-                      FROM users u
-                               LEFT JOIN information_users inf ON u.id_user = inf.id_user
-                      WHERE inf.name LIKE "%${value}%"`,
-            "all": true,
+            "query": sql, "all": true,
             "fetch": true
         }
         let url = "http://localhost:8888/treeproject/query.php";
@@ -35,10 +51,9 @@ let input = function () {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify(data)
+        }).then(function (response) {
+            return response.json()
         })
-            .then(function (response) {
-                return response.json()
-            })
             .then(function (data) {
                 addToPage(data)
             })
@@ -63,9 +78,10 @@ let input = function () {
                         let td = document.createElement("td")
                         if (elem[header] && elem[header] != " ")
                             td.textContent = elem[header]
-                        else
+                        else {
                             td.classList.add("greyText")
                             td.textContent = "Отсутствует"
+                        }
 
                         tr.appendChild(td);
                     });
@@ -75,13 +91,15 @@ let input = function () {
                 }
             );
 
-            function openProfilePage() {
+            function
+            openProfilePage() {
                 let id = this.userId
                 window.open(`http://localhost:8888/treeproject/user.php?id=${id}`, "_self")
             }
 
             let error = document.querySelector(".error");
-            if (!data.length) {
+            if
+            (!data.length) {
                 let errorText = "Ничего не найдено";
                 error.textContent = errorText;
             } else {
@@ -92,4 +110,4 @@ let input = function () {
     }
 }
 
-input()
+inputs()

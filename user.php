@@ -24,6 +24,7 @@ if (!$_COOKIE["login"]) {
     header("Location: index.php");
 }
 $user_info = getUserInfo($_GET["id"]);
+
 ?>
 <body>
 <?php require "parts/header.php" ?>
