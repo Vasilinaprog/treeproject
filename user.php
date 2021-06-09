@@ -176,5 +176,6 @@ $user_info = getUserInfo($_GET["id"]);
         </div>
         <script src="js/user.js"></script>
 
+<!--        TODO надо указывать, кто он тебе в данный момент-->
 </body>
 </html>
