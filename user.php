@@ -1,7 +1,5 @@
 <?php
 require "base.php"
-
-//TODO надо сделать кнопку, по которой можно будет сделать его родственником (указать, кто он тебе)
 ?>
 <!doctype html>
 <html lang="ru">
@@ -37,7 +35,7 @@ $user_info = getUserInfo($_GET["id"]);
                         <img src="img\profile_photo.png" title="на главную страницу" alt=""/>
                     </div>
                     <h1 id="name"><?= $user_info["name"] ?></h1>
-                    <div id="addButton"  class="button">
+                    <div id="addButton" class="button">
                         Добавить
                     </div>
                 </div>
@@ -157,7 +155,6 @@ $user_info = getUserInfo($_GET["id"]);
                 </div>
             </div>
         </div>
-        <script src="js/user.js"></script>
 
         <!--        окно модальное-->
         <div id="popupWin" class="modalwin">
@@ -166,16 +163,18 @@ $user_info = getUserInfo($_GET["id"]);
                     Кто он вам:
                 </div>
                 <div>
-                    <select>
+                    <select id="select-type">
                         <option value="Родитель">Родитель</option>
                         <option value="Ребенок">Ребенок</option>
                         <option value="Внук">Внук</option>
                     </select>
                 </div>
             </div>
-            <div userId="<?= $_GET["id"] ?>" class="button-accept">
+            <div userId="<?= $_GET["id"] ?>" id="button-accept-user" class="button-accept">
                 Принять
             </div>
         </div>
+        <script src="js/user.js"></script>
+
 </body>
 </html>
