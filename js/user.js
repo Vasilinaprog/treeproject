@@ -21,5 +21,5 @@ let Addbutton = function () {
         };
     }
 }
-
+//TODO надо сделать логику кнопки добавления родственника
 Addbutton()

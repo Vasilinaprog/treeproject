@@ -37,7 +37,7 @@ $user_info = getUserInfo($_GET["id"]);
                         <img src="img\profile_photo.png" title="на главную страницу" alt=""/>
                     </div>
                     <h1 id="name"><?= $user_info["name"] ?></h1>
-                    <div id="addButton" userId="<?= $_GET["id"] ?>" class="button">
+                    <div id="addButton"  class="button">
                         Добавить
                     </div>
                 </div>
@@ -159,15 +159,23 @@ $user_info = getUserInfo($_GET["id"]);
         </div>
         <script src="js/user.js"></script>
 
-<!--        окно модальное-->
-        <div  id="popupWin" class="modalwin">
-            <h2> Какая-то форма </h2>
-            <form>
-                <input value="text">
-                <input type="button" value="OK">
-            </form>
-            <h2> Какой-то текст </h2>
-            <br> <p> УРа!!!!!!!!!! </p>
+        <!--        окно модальное-->
+        <div id="popupWin" class="modalwin">
+            <div class="choice-window">
+                <div>
+                    Кто он вам:
+                </div>
+                <div>
+                    <select>
+                        <option value="Родитель">Родитель</option>
+                        <option value="Ребенок">Ребенок</option>
+                        <option value="Внук">Внук</option>
+                    </select>
+                </div>
+            </div>
+            <div userId="<?= $_GET["id"] ?>" class="button-accept">
+                Принять
+            </div>
         </div>
 </body>
 </html>
