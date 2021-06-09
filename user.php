@@ -14,6 +14,7 @@ require "base.php"
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"/>
     <link href="css\base.css" rel="stylesheet"/>
     <link href="css\prof.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css\user.css">
     <title>Пользователь</title>
 </head>
 
@@ -35,11 +36,10 @@ $user_info = getUserInfo($_GET["id"]);
                     <div class="profile_img">
                         <img src="img\profile_photo.png" title="на главную страницу" alt=""/>
                     </div>
-                    <?php if ($user_info["name"]): ?>
-                        <h1 id="name"><?= $user_info["name"] ?></h1>
-                    <?php else: ?>
-                        <h1 id="name"> Введите имя</h1>
-                    <?php endif; ?>
+                    <h1 id="name"><?= $user_info["name"] ?></h1>
+                    <div id="addButton" userId="<?= $_GET["id"] ?>" class="button">
+                        Добавить
+                    </div>
                 </div>
 
                 <div class="user-information">
@@ -156,6 +156,18 @@ $user_info = getUserInfo($_GET["id"]);
                     </div>
                 </div>
             </div>
+        </div>
+        <script src="js/user.js"></script>
+
+<!--        окно модальное-->
+        <div  id="popupWin" class="modalwin">
+            <h2> Какая-то форма </h2>
+            <form>
+                <input value="text">
+                <input type="button" value="OK">
+            </form>
+            <h2> Какой-то текст </h2>
+            <br> <p> УРа!!!!!!!!!! </p>
         </div>
 </body>
 </html>
