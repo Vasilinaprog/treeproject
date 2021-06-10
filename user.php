@@ -51,7 +51,7 @@ $user_info = getUserInfo($_GET["id"]);
                                        value="<?= $user_info["height"] ?>"
                                        type="number">
                             <?php else: ?>
-                                <input disabled="disabled" parameter="height" class="change-input" placeholder="Рост"
+                                <input disabled="disabled" parameter="height" class="change-input" placeholder="Не задано"
                                        type="number">
 
                             <?php endif; ?>
@@ -99,6 +99,53 @@ $user_info = getUserInfo($_GET["id"]);
 
                             </div>
                         </div>
+
+                        <!--                        информация о том, кто данный человек тебе и кто ты ему-->
+                        <div>
+                            <div class="additional-inf">
+                                <div class="select-text">
+                                    Кто он/она тебе:
+                                </div>
+                                <div style="color: rebeccapurple">
+                                    <?php
+                                    $id = $_COOKIE['id_user'];
+                                    $id_user = $_GET["id"];
+                                    $sql = "SELECT * FROM relationship WHERE id_user = $id AND id_subscribe = $id_user";
+                                    $res = queryAll($sql, false);
+                                    ?>
+
+                                    <?php if (empty($res)): ?>
+                                        Пока никто
+                                    <?php else: ?>
+                                        <?= $res["type"] ?>
+                                    <?php endif ?>
+                                </div>
+
+                            </div>
+                            <div>
+                                <div class="additional-inf">
+                                    <div class="select-text">
+                                        Кто ты ему/ей:
+                                    </div>
+
+                                    <div style="color: rebeccapurple">
+                                        <?php
+                                        $id = $_COOKIE['id_user'];
+                                        $id_user = $_GET["id"];
+                                        $sql = "SELECT * FROM relationship WHERE id_user = $id_user AND id_subscribe = $id";
+                                        $res = queryAll($sql, false);
+                                        ?>
+
+                                        <?php if (empty($res)): ?>
+                                            Пока никто
+                                        <?php else: ?>
+                                            <?= $res["type"] ?>
+                                        <?php endif ?>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -112,7 +159,7 @@ $user_info = getUserInfo($_GET["id"]);
                                            class="change-input" name="name"/>
                                 <?php else: ?>
                                     <input disabled="disabled" type="text" parameter="name" class="change-input"
-                                           placeholder="Имя"
+                                           placeholder="Не задано"
                                            name="name"/>
                                 <?php endif; ?>
                             </div>
@@ -122,7 +169,7 @@ $user_info = getUserInfo($_GET["id"]);
                                            value="<?= $user_info["surname"] ?>" name="surname"/>
                                 <?php else: ?>
                                     <input disabled="disabled" type="text" parameter="surname" class="change-input"
-                                           placeholder="Фамилия" name="surname"/>
+                                           placeholder="Не задано" name="surname"/>
                                 <?php endif; ?>
                             </div>
                             <div>
@@ -131,7 +178,7 @@ $user_info = getUserInfo($_GET["id"]);
                                            value="<?= $user_info["patronymic"] ?>" name="second_name"/>
                                 <?php else: ?>
                                 <input disabled="disabled" type="text" parameter="patronymic" class="change-input"
-                                       placeholder="Отчество" name="second_name"/>
+                                       placeholder="Не задано" name="second_name"/>
                                 <div>
                                     <?php endif; ?>
                                 </div>
@@ -167,6 +214,7 @@ $user_info = getUserInfo($_GET["id"]);
                         <option value="Родитель">Родитель</option>
                         <option value="Ребенок">Ребенок</option>
                         <option value="Внук">Внук</option>
+                        <option selected="selected" value="delete">Никто</option>
                     </select>
                 </div>
             </div>
@@ -176,6 +224,6 @@ $user_info = getUserInfo($_GET["id"]);
         </div>
         <script src="js/user.js"></script>
 
-<!--        TODO надо указывать, кто он тебе в данный момент-->
+        <!--        TODO надо указывать, кто он тебе в данный момент-->
 </body>
 </html>
