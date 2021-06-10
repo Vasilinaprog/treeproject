@@ -26,8 +26,9 @@ function queryAll($query, $all)
 
 }
 
-function getUserInfo($id=0){
-    if($id == 0)
+function getUserInfo($id = 0)
+{
+    if ($id == 0)
         $id = $_COOKIE["id_user"];
     $sql = "SELECT * FROM information_users WHERE id_user = $id";
     return queryAll($sql, false);
@@ -41,14 +42,15 @@ function append_user($login, $email, $password, $communication)
 
 function check_user($login, $password)
 {
-    $sql = "SELECT * FROM users WHERE email = $login AND password = $password";
+    $sql = "SELECT * FROM users WHERE email = '$login' AND password = '$password'";
+    $result = queryAll($sql, false);
+    if (!empty($result)) {
+        return $result;
+    }
+    $sql = "SELECT * FROM users WHERE login='$login' AND password='$password'";
     $result = queryAll($sql, false);
     if (!empty($result)) return $result;
-    else {
-        $sql = "SELECT * FROM users WHERE login='$login' AND password='$password'";
-        $result = queryAll($sql, false);
-        if (!empty($result)) return $result;
-    }
+
     return false;
 }
 
@@ -61,7 +63,8 @@ function user_exist($login)
 }
 
 
-function getUser(){
+function getUser()
+{
     $login = $_COOKIE["login"];
     $sql = "SELECT * FROM users WHERE  login ='$login'";
     return queryAll($sql, false);
