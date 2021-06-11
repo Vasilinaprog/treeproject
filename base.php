@@ -11,7 +11,7 @@ function getConnect()
     return $pdo;
 }
 
-function queryAll($query, $all)
+function queryAll($query, $all=true)
 {
     global $pdo;
     $stmt = $pdo->prepare($query);

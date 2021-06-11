@@ -211,6 +211,7 @@ $user_info = getUserInfo($_GET["id"]);
                 </div>
                 <div>
                     <select id="select-type">
+                        <option value="Дедушка/бабушка">Дедушка/бабушка</option>
                         <option value="Родитель">Родитель</option>
                         <option value="Ребенок">Ребенок</option>
                         <option value="Внук">Внук</option>

@@ -85,36 +85,35 @@ let addSelect = function () {
 }
 
 
-let changeImage = function () {
-    let input = document.querySelector("#load-file-input");
-    input.addEventListener("change", loadPhoto);
-
-    function loadPhoto() {
-        let file = this.files[0]
-        let data = new FormData()
-        data.append("file", file)
-        data.append("test", "ok")
-        loadNewImage(data)
-    }
-
-    function loadNewImage(form) {
-        // TODO надо доделать загрузку фото
-        let url = "http://localhost:8888/treeproject/load/user/image.php"
-        fetch(url, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/multipart/form-data'
-            },
-            body: form
-        })
-            .then(function (response) {
-                return response.text()
-            })
-            .then(function (data) {
-                alert(data)
-            })
-    }
-}
+// let changeImage = function () {
+//     let input = document.querySelector("#load-file-input");
+//     input.addEventListener("change", loadPhoto);
+//
+//     function loadPhoto() {
+//         let file = this.files[0]
+//         let data = new FormData()
+//         data.append("file", file)
+//         data.append("test", "ok")
+//         loadNewImage(data)
+//     }
+//
+//     function loadNewImage(form) {
+//         let url = "http://localhost:8888/treeproject/load/user/image.php"
+//         fetch(url, {
+//             method: "POST",
+//             headers: {
+//                 'Content-Type': 'application/multipart/form-data'
+//             },
+//             body: form
+//         })
+//             .then(function (response) {
+//                 return response.text()
+//             })
+//             .then(function (data) {
+//                 alert(data)
+//             })
+//     }
+// }
 addSelect()
-changeImage()
+// changeImage()
 inputs()
