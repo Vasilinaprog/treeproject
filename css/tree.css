@@ -1,2 +1,20 @@
 /*TODO тут будут стили дерева (списка)*/
 
+.header-for-type {
+    font-size: 25px;
+    color: #660029FF;
+}
+.users-tree{
+    font-size:21px;
+    margin: 5px;
+    margin-left: 40px;
+}
+.users-tree.users-tree-pointer{
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+
+.users-tree.users-tree-pointer:hover{
+    transition: all .3s ease-in-out;
+    color: #400017;
+}

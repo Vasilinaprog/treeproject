@@ -69,18 +69,34 @@ $relationshipsToMe = opposite($relationshipsToMe);
     <div class="relatives">
 
         <?php foreach ($all_headers as $header): ?>
-            <!--        TODO надо сделать дизайн того, как это будет отображаться + возможность перейти по этому профилю-->
-            <p><?= $header ?></p>
+            <div class="header-for-type"><?= $header ?></div>
             <?php $elems = getByType($relationships, $relationshipsToMe, $header); ?>
             <?php if (!empty($elems)): ?>
-                <?php print_r($elems) ?>
+                <?php foreach ($elems as $user): ?>
+                    <?php
+                        if ($user["id_subscribe"] == $id) {
+                            $id_sub = $user["id_user"];
+                        }else{
+                            $id_sub = $user["id_subscribe"];
+                        }
+                        $subscribe = queryAll("SELECT * FROM information_users WHERE id_user = $id_sub", false);
+                    ?>
+                <div class="users-tree users-tree-pointer" userid="<?=$id_sub?>">
+<!--                    класс, в котором будет название пользователя-->
+                    <?= $subscribe["surname"]?>
+                    <?= $subscribe["name"]?>
+                    <?= $subscribe["patronymic"]?>
+                </div>
+                <?php endforeach; ?>
             <?php else: ?>
-                <p>Тут пока пусто</p>
+                <div class="users-tree">
+                    Тут пока никого нет
+                </div>
             <?php endif ?>
         <?php endforeach; ?>
     </div>
 </body>
 
 
-<script src="js/changeUser.js"></script>
+<script src="js/tree.js"></script>
 </html>

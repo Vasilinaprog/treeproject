@@ -1,18 +1,20 @@
-.answer table tr th{
+.answer table tr th {
     font-size: 20px;
     padding: 5px
 }
+
 .answer table {
     width: 100%;
     text-align: center;
 }
+
 .select-text {
     margin-bottom: 10px;
     font-size: 19px
 }
 
 
-.toUser{
+.toUser {
     cursor: pointer;
     font-size: 19px;
 }
@@ -21,11 +23,12 @@
     color: #cd0000;
     font-size: 20px;
 }
-.greyText{
+
+.greyText {
     color: rgba(9, 9, 9, 0.36);
 }
 
-.button-find{
+.button-find {
     margin-top: auto;
     margin-bottom: auto;
     padding: 7px;
@@ -33,4 +36,10 @@
     border-radius: 15px;
     font-size: 18px;
     cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.button-find:hover {
+    transition: all .3s ease-in-out;
+    color: #660029FF;
 }
