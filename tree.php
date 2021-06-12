@@ -1,7 +1,3 @@
-<?php
-//TODO надо сделать дерево в виде списка, брать из бд уже типы, чтобы ничего лишнего не было, так проще
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require "base.php" ?>
@@ -24,25 +20,64 @@ if (!$_COOKIE["login"]) {
 <body>
 <?php require "parts/header.php" ?>
 <?php
-$changes = ["Дедушка/бабушка" => "Внук", "Родитель" => "Ребенок", "Ребенок" => "Родитель", "Внук" => "Дедушка/бабушка"];
-$id = $_COOKIE["id_user"];
-//TODO надо переделать и удалить все это
-//$all_headers = queryAll("SELECT DISTINCT type FROM relationship WHERE id_user = $id OR id_subscribe = $id", true);
-//$relationships1 = queryAll("SELECT * FROM relationship WHERE id_user = $id", true);
-//$id_of_subscribes_fetch = queryAll("SELECT id_subscribe FROM relationship WHERE id_user = $id", true);
-//$id_of_subscribes = [];
-//$i = 0;
-//foreach ($id_of_subscribes_fetch as $id_user){
-//    $id_of_subscribes[$i] = $id_user[0];
-//    $i++;
-//}
-//$relationshipsAnother = queryAll("SELECT * FROM relationship WHERE id_subscribe = $id AND id_user NOT IN $id_of_subscribes", true)
+function opposite($data)
+{
+    //функция меняет по словарю
+    $changes = ["Дедушка/бабушка" => "Внук", "Родитель" => "Ребенок", "Ребенок" => "Родитель", "Внук" => "Дедушка/бабушка"];
+    $data2 = [];
+    $i = 0;
+    foreach ($data as $elem) {
+        $elem["type"] = $changes[$elem["type"]];
+        $data2[$i] = $elem;
+        $i++;
+    }
+    return $data2;
+}
 
+function getByType($data1, $data2, $type)
+{
+    //находит среди двух массивов словарей нужные по типу
+    $changes = ["Дедушки и бабушки" => "Дедушка/бабушка", "Родители" => "Родитель", "Дети" => "Ребенок", "Внуки" => "Внук"];
+    $all = [];
+    $i = 0;
+    $type = $changes[$type];
+    foreach ($data1 as $elem) {
+        if ($elem["type"] == $type) {
+            $all[$i] = $elem;
+            $i++;
+        }
+    }
+    foreach ($data2 as $elem) {
+        if ($elem["type"] == $type) {
+            $all[$i] = $elem;
+            $i++;
+        }
+    }
+    return $all;
+}
+
+$all_headers = ["Дедушки и бабушки", "Родители", "Дети", "Внуки"];
+
+$id = $_COOKIE["id_user"];
+$relationships = queryAll("SELECT * FROM relationship WHERE id_user = $id", true);
+
+$relationshipsToMe = queryAll("SELECT * FROM relationship WHERE id_subscribe = $id AND id_user NOT IN (SELECT id_subscribe FROM relationship WHERE id_user = $id)", true);
+$relationshipsToMe = opposite($relationshipsToMe);
 ?>
 <div class="main">
     <h2>Ваши родственники:</h2>
     <div class="relatives">
-<!--        TODO надо переделать это-->
+
+        <?php foreach ($all_headers as $header): ?>
+            <!--        TODO надо сделать дизайн того, как это будет отображаться + возможность перейти по этому профилю-->
+            <p><?= $header ?></p>
+            <?php $elems = getByType($relationships, $relationshipsToMe, $header); ?>
+            <?php if (!empty($elems)): ?>
+                <?php print_r($elems) ?>
+            <?php else: ?>
+                <p>Тут пока пусто</p>
+            <?php endif ?>
+        <?php endforeach; ?>
     </div>
 </body>
 
